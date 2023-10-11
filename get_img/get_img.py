@@ -98,8 +98,8 @@ HEADERS = {
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='爬取并保存图片。')
     parser.add_argument("-s", '--seach', default="口罩 人们", help='搜索关键字。')
-    parser.add_argument('--num', type=int, default=5, help='总图片数量。')
-    parser.add_argument('--step', type=int, default=5, help='每一步的数量。')
+    parser.add_argument('--num', type=int, default=30, help='总图片数量。')
+    parser.add_argument('--step', type=int, default=30, help='每一步的数量。')
     parser.add_argument('--start', type=int, default=0, help='开始的偏移量。')
     parser.add_argument('--save_dir', default='img', help='保存目录。')
     parser.add_argument('--save_name', default='0000_%s.jpg', help='保存文件名格式。')
