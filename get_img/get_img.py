@@ -5,7 +5,7 @@ import requests
 import argparse
 from bs4 import BeautifulSoup
 
-def get_img_urls(BASE_URL, seach, start=0, num=100, step=35):
+def get_img_urls(base_url, seach, start=0, num=100, step=35):
     """获取图片链接列表
     
     Args:
@@ -37,7 +37,7 @@ def get_img_urls(BASE_URL, seach, start=0, num=100, step=35):
         }
         
         # 发起请求
-        response = requests.get(BASE_URL, headers=HEADERS, params=params)
+        response = requests.get(base_url, headers=HEADERS, params=params)
         if response.status_code != 200:
             print(f"请求失败，错误码{response.status_code}")
             exit()
@@ -105,12 +105,12 @@ if __name__ == "__main__":
     parser.add_argument('--save_name', default='0000_%s.jpg', help='保存文件名格式。')
     parser.add_argument('--print', action='store_true', help='打印图片链接。')
     parser.add_argument('--nosave', action='store_true', help='不保存图片。')
-    parser.add_argument('--BASE_URL', default="https://www.bing.com/images/async", help='基础URL。')
+    parser.add_argument('--base-url', default="https://www.bing.com/images/async", help='基础URL。')
 
     args = parser.parse_args()
     
     # 使用参数来获取图片链接
-    all_image_links = get_img_urls(args.BASE_URL, args.seach, start=args.start, num=args.num, step=args.step)
+    all_image_links = get_img_urls(args.base_url, args.seach, start=args.start, num=args.num, step=args.step)
 
     # 根据参数来决定是否打印图片链接
     print_url(all_image_links, args.print)
